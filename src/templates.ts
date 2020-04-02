@@ -83,7 +83,7 @@ export function proxiesJson(assetsUrl: string, pages: NextPage[]): string {
           methods: ["GET"],
           route: "sitemap.xml"
         },
-        backendUri: `${assetsUrl}public/sitemap.txt`
+        backendUri: `${assetsUrl}public/sitemap.xml`
       },
       ...pageProxies
     }
