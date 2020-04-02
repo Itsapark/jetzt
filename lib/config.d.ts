@@ -5,19 +5,19 @@ export declare class JetztConfig {
     static parse(sourcePath: string, content: string): JetztConfig;
     static write(sourcePath: string, config: Config): Promise<void>;
     constructor(sourcePath: string, config: Config);
-    readonly buildOutputPath: string;
-    readonly buildPagesOutputPath: string;
-    readonly buildAssetsOutputPath: string;
+    get buildOutputPath(): string;
+    get buildPagesOutputPath(): string;
+    get buildAssetsOutputPath(): string;
     /**
      * Name of the function app
      */
-    readonly name: string;
-    readonly subscriptionId: string;
-    readonly location: string;
-    readonly resourceGroup: string;
-    readonly storageAccount: string;
-    readonly assetsContainerName: string;
-    readonly storageUrl: string;
+    get name(): string;
+    get subscriptionId(): string;
+    get location(): string;
+    get resourceGroup(): string;
+    get storageAccount(): string;
+    get assetsContainerName(): string;
+    get storageUrl(): string;
     private checkConfig;
 }
 export interface StorageConfig {

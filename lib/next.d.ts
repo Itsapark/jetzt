@@ -16,34 +16,34 @@ export declare class NextPage {
     /**
      * Indicates whether the page was statically pre-rendered
      */
-    readonly isStatic: boolean;
+    get isStatic(): boolean;
     /**
      * Indicates whether the page uses dynamic routing
      */
-    readonly isDynamicallyRouted: boolean;
+    get isDynamicallyRouted(): boolean;
     /**
      * Indicates whether the page is a special page, e.g., the error page
      */
-    readonly isSpecial: boolean;
-    readonly route: string;
-    readonly processedRoute: string;
+    get isSpecial(): boolean;
+    get route(): string;
+    get processedRoute(): string;
     /**
      * Name of the page
      *
      * For example, for "pages/foo/contact.{ts,js,html}"" this will be "contact". For dynamic pages,
      * [foo] will be replaced with _foo_
      */
-    readonly pageName: string;
-    readonly pageFileName: string;
-    readonly pageSourcePath: string;
-    readonly identifier: string;
+    get pageName(): string;
+    get pageFileName(): string;
+    get pageSourcePath(): string;
+    get identifier(): string;
     /**
      * Absolute path to the target folder
      */
-    readonly targetFolder: string;
-    readonly targetPath: string;
-    readonly targetPageName: string;
-    readonly targetPageFileName: string;
+    get targetFolder(): string;
+    get targetPath(): string;
+    get targetPageName(): string;
+    get targetPageFileName(): string;
     toString(): string;
 }
 /**
@@ -54,5 +54,5 @@ export declare class NextBuild {
     private _pages;
     constructor(sourcePath: string);
     init(buildOutputPath: string): Promise<void>;
-    readonly pages: NextPage[];
+    get pages(): NextPage[];
 }
