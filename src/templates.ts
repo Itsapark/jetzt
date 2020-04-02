@@ -69,7 +69,21 @@ export function proxiesJson(assetsUrl: string, pages: NextPage[]): string {
           methods: ["GET"],
           route: "static/{*asset}"
         },
-        backendUri: `${assetsUrl}static/{asset}`
+        backendUri: `${assetsUrl}public/static/{asset}`
+      },
+      robot_txt: {
+        matchCondition: {
+          methods: ["GET"],
+          route: "robots.txt"
+        },
+        backendUri: `${assetsUrl}public/robots.txt`
+      },
+      sitemap_xml: {
+        matchCondition: {
+          methods: ["GET"],
+          route: "sitemap.xml"
+        },
+        backendUri: `${assetsUrl}public/sitemap.txt`
       },
       ...pageProxies
     }

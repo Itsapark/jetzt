@@ -163,15 +163,15 @@ async function upload(config: JetztConfig) {
     fail("Could not upload assets to Azure blob storage", e);
   }
 
-  log(`Uploading static assets to blob storage...`, LogLevel.Verbose);
+  log(`Uploading public static assets to blob storage...`, LogLevel.Verbose);
   try {
     await execAsync(
-      `az storage blob upload-batch --subscription ${subscriptionId} --account-name ${storageAccount} --destination ${assetsContainerName} --destination-path static --source ${join(
+      `az storage blob upload-batch --subscription ${subscriptionId} --account-name ${storageAccount} --destination ${assetsContainerName} --destination-path public --source ${join(
         sourcePath,
-        "static"
+        "public"
       )}`
     );
   } catch (e) {
-    fail("Could not upload assets to Azure blob storage", e);
+    fail("Could not upload public assets to Azure blob storage", e);
   }
 }
