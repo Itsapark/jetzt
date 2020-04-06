@@ -1,6 +1,6 @@
 {
   "name": "jetzt",
-  "version": "0.0.8",
+  "version": "0.0.8-1.0",
   "description": "Package and publish Next.js 9 serverless applications to Azure Functions",
   "main": "src/index.js",
   "bin": {
