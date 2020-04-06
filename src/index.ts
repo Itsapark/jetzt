@@ -7,7 +7,6 @@ import { run } from "./run";
 import { LogLevel, setLogLevel } from "./lib/log";
 import { enableDryRun } from "./lib/exec";
 import { Mode, ModeFlags } from "./mode";
-import * as packagejson from "../package.json";
 
 console.log(
   chalk.green(figlet.textSync("jetzt", { horizontalLayout: "full" }))
@@ -17,7 +16,7 @@ let nextJsFolder: string | undefined;
 
 const program = new commander.Command();
 program
-  .version(packagejson.version)
+  .version("0.0.8-1.0")
   .arguments("<nextjsfolder>")
   .action((folder) => {
     nextJsFolder = folder;
