@@ -18,14 +18,14 @@ export function functionJson(page: NextPage) {
         direction: "in",
         name: "req",
         methods: ["get"],
-        route: page.processedRoute
+        route: page.processedRoute,
       },
       {
         type: "http",
         direction: "out",
-        name: "res"
-      }
-    ]
+        name: "res",
+      },
+    ],
   });
 }
 
@@ -34,9 +34,9 @@ export function hostJson(): string {
     version: "2.0",
     extensions: {
       http: {
-        routePrefix: ""
-      }
-    }
+        routePrefix: "",
+      },
+    },
   });
 }
 
@@ -44,13 +44,13 @@ export function proxiesJson(assetsUrl: string, pages: NextPage[]): string {
   const pageProxies: any = {};
 
   // Generate proxies for static pages
-  for (const p of pages.filter(p => p.isStatic && !p.isSpecial)) {
+  for (const p of pages.filter((p) => p.isStatic && !p.isSpecial)) {
     pageProxies[`proxy_${p.identifier}`] = {
       matchCondition: {
         methods: ["GET"],
-        route: p.route
+        route: p.route,
       },
-      backendUri: resolve(assetsUrl, `_next/pages/${p.targetPageFileName}`)
+      backendUri: resolve(assetsUrl, `_next/pages/${p.targetPageFileName}`),
     };
   }
 
@@ -60,32 +60,33 @@ export function proxiesJson(assetsUrl: string, pages: NextPage[]): string {
       page_assets: {
         matchCondition: {
           methods: ["GET"],
-          route: "_next/{*asset}"
+          route: "_next/{*asset}",
         },
-        backendUri: `${assetsUrl}_next/{asset}`
+        backendUri: `${assetsUrl}_next/{asset}`,
       },
       static_assets: {
         matchCondition: {
           methods: ["GET"],
-          route: "static/{*asset}"
+          route: "static/{*asset}",
         },
-        backendUri: `${assetsUrl}public/static/{asset}`
+        backendUri: `${assetsUrl}public/static/{asset}`,
       },
-      robot_txt: {
+      robots_txt: {
         matchCondition: {
           methods: ["GET"],
-          route: "robots.txt"
+          route: "robots.txt",
         },
-        backendUri: `${assetsUrl}public/robots.txt`
+        backendUri: `${assetsUrl}public/robots.txt`,
       },
       sitemap_xml: {
         matchCondition: {
           methods: ["GET"],
-          route: "sitemap.xml"
+          route: "sitemap.xml",
         },
-        backendUri: `${assetsUrl}public/sitemap.xml`
+        backendUri: `${assetsUrl}public/sitemap.xml`,
       },
-      ...pageProxies
-    }
+
+      ...pageProxies,
+    },
   });
 }
